@@ -10,9 +10,12 @@ LDLIBS		= -L$(LIBTESTDIR) -ltest
 LDFLAGS		= -fsanitize=undefined
 TEST		= test_list_single_int
 
-all:	test
+all:	clean testsuite test 
 
 test:	$(TEST)
+
+testsuite:
+	cd $(LIBTESTDIR); make all
 
 clean:
 	rm -f $(TEST)
