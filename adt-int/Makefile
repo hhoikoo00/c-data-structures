@@ -5,8 +5,8 @@ CFLAGS		= $(DEBUGFLAGS) $(WARNFLAGS) -Iinclude/
 
 LDLIBS		= 
 LDFLAGS		= -fsanitize=undefined
-LIB			= libadt-int.a
-LIBOBJS		= 
+LIB			= libadt_int.a
+LIBOBJS		= list_single_int.o
 
 all:	build lib test
 
@@ -24,7 +24,7 @@ clean:
 	cd test; make clean
 	rm -f $(wildcard *.o) $(wildcard *.a)
 
-
+list_single_int.o:	include/list_single_int.h
 
 .SUFFIXES:	.c .o
 .PHONY:		all build lib test clean
