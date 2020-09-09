@@ -8,7 +8,7 @@ LIBTESTDIR	= ../../libtest
 
 LDLIBS		= -L$(LIBTESTDIR) -ltest
 LDFLAGS		= -fsanitize=undefined
-TEST		= test_list_single_int
+TEST		= test_list_single_int test_list_double_int
 
 all:	clean testsuite test 
 
@@ -21,6 +21,7 @@ clean:
 	rm -f $(TEST)
 
 test_list_single_int:	$(INCLUDEDIR)/list_single_int.o
+test_list_double_int:	$(INCLUDEDIR)/list_double_int.o
 
 .SUFFIXES:	.c .o
 .PHONY:		all test clean
