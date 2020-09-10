@@ -27,7 +27,13 @@ void testbool(bool condition, char *testname) {
 #endif
 }
 
-void run_unit_test(char *test_name, void (*test_runner)(void)) {
-    print_test_name(test_name);
-    test_runner();
+void run_unit_test(struct unit_test test) {
+    print_test_name(test.name);
+    test.runner();
+}
+
+void run_all_tests(struct unit_test tests[], int num_tests) {
+    for (int i = 0; i < num_tests; i++) {
+        run_unit_test(tests[i]);
+    }
 }

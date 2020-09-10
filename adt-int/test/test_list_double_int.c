@@ -315,17 +315,48 @@ void test_remove_random(void) {
 }
 
 int main(void) {
-    run_unit_test("list alloc and init works", &test_list_alloc_init_works);
-    run_unit_test("adding items sequentially works", &test_add_element_sequentially);
-    run_unit_test("add_front works", &test_add_element_front);
-    run_unit_test("add_back works", &test_add_element_back);
-    run_unit_test("add works for arbitary random insertion", &test_add_element_random);
-    run_unit_test("size works", &test_size);
-    run_unit_test("remove_front works", &test_remove_front);
-    run_unit_test("remove_back works", &test_remove_back);
-    run_unit_test("remove works", &test_remove_random);
+    struct unit_test all_tests[] = {
+        {
+            .name = "list alloc and init works",
+            .runner = &test_list_alloc_init_works
+        },
+        {
+            .name = "adding items sequentially works",
+            .runner = &test_add_element_sequentially
+        },
+        {
+            .name = "add_front works",
+            .runner = &test_add_element_front
+        },
+        {
+            .name = "add_back works",
+            .runner = &test_add_element_back
+        },
+        {
+            .name = "add works for arbitary random insertion",
+            .runner = &test_add_element_random
+        },
+        {
+            .name = "size works",
+            .runner = &test_size
+        },
+        {
+            .name = "remove_front works",
+            .runner = &test_remove_front
+        },
+        {
+            .name = "remove_back works",
+            .runner = &test_remove_back
+        },
+        {
+            .name = "remove works",
+            .runner = &test_remove_random
+        }
+    };
+    
+    int size_of_tests = sizeof(all_tests) / sizeof(all_tests[0]);
 
-    // run_unit_test("composite test: for temporary testing", &test_composite);
+    run_all_tests(all_tests, size_of_tests);
 }
 
 void test_composite(void) {
