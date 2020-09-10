@@ -8,7 +8,7 @@ LDFLAGS		= -fsanitize=undefined
 LIB			= libadt_int.a
 LIBOBJS		= list_single_int.o list_double_int.o stack_int.o
 
-all:	build test
+all:	build lib test
 
 build:	$(LIBOBJS)
 
