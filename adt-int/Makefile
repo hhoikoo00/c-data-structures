@@ -6,7 +6,7 @@ CFLAGS		= $(DEBUGFLAGS) $(WARNFLAGS) -Iinclude/
 LDLIBS		= 
 LDFLAGS		= -fsanitize=undefined
 LIB			= libadt_int.a
-LIBOBJS		= list_single_int.o list_double_int.o stack_int.o
+LIBOBJS		= list_single_int.o list_double_int.o stack_int.o queue_int.o
 
 all:	build lib test
 
@@ -27,6 +27,7 @@ clean:
 list_single_int.o:	include/list_single_int.h
 list_double_int.o:	include/list_double_int.h
 stack_int.o:	include/stack_int.h
+queue_int.o:	include/queue_int.h
 
 .SUFFIXES:	.c .o
 .PHONY:		all build lib test clean
